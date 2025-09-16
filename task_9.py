@@ -2,6 +2,7 @@ import shutil
 from contextlib import contextmanager
 import os
 
+
 @contextmanager
 def backup_file_manager(filepath):
     """
@@ -20,6 +21,7 @@ def backup_file_manager(filepath):
         shutil.move(backup_path, filepath)
         raise
 
+
 def main():
     """
     Демонструє резервне копіювання та відновлення файлу.
@@ -35,6 +37,7 @@ def main():
     except Exception:
         print("Відновлено резервну копію!")
     print("Готово.")
+
 
 if __name__ == "__main__":
     main()

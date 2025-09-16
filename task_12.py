@@ -1,5 +1,6 @@
 from contextlib import contextmanager
 
+
 @contextmanager
 def binary_file_reader(filepath, block_size=1024):
     """
@@ -19,6 +20,7 @@ def binary_file_reader(filepath, block_size=1024):
                 yield block
     yield reader()
 
+
 def main():
     """
     Демонструє зчитування бінарного файлу блоками.
@@ -29,6 +31,7 @@ def main():
     with binary_file_reader(filepath, 1024) as blocks:
         for block in blocks:
             print(f"Блок: {len(block)} байт")
+
 
 if __name__ == "__main__":
     main()

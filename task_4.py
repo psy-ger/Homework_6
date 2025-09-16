@@ -12,6 +12,7 @@ def filter_lines_with_keyword(filepath, keyword):
             if keyword in line:
                 yield line
 
+
 def save_filtered_lines(input_path, output_path, keyword):
     """
     Записує у новий файл лише ті рядки, що містять ключове слово.
@@ -24,6 +25,7 @@ def save_filtered_lines(input_path, output_path, keyword):
         for line in filter_lines_with_keyword(input_path, keyword):
             out_file.write(line)
 
+
 def main():
     """
     Демонструє фільтрацію великого файлу за ключовим словом.
@@ -33,6 +35,7 @@ def main():
     keyword = "ERROR"  # Змініть на потрібне слово
     save_filtered_lines(input_path, output_path, keyword)
     print(f"Рядки з '{keyword}' збережено у {output_path}")
+
 
 if __name__ == "__main__":
     main()

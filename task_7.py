@@ -11,6 +11,7 @@ def error_lines_from_log(filepath):
             if any(line.split()[8].startswith(str(code)) for code in range(4, 6)):
                 yield line
 
+
 def save_errors(input_path, output_path):
     """
     Записує всі рядки з помилками у новий файл.
@@ -22,6 +23,7 @@ def save_errors(input_path, output_path):
         for line in error_lines_from_log(input_path):
             out_file.write(line)
 
+
 def main():
     """
     Демонструє парсинг лог-файлу для аналітики помилок.
@@ -30,6 +32,7 @@ def main():
     output_path = "errors.log"
     save_errors(input_path, output_path)
     print(f"Помилки збережено у {output_path}")
+
 
 if __name__ == "__main__":
     main()

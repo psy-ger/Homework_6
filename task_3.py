@@ -2,10 +2,12 @@ import os
 import csv
 from PIL import Image
 
+
 class ImageStatsIterator:
     """
     Ітератор для обходу зображень у каталозі та збору їх метаданих.
     """
+
     def __init__(self, directory):
         """
         Ініціалізує ітератор для заданого каталогу.
@@ -13,7 +15,8 @@ class ImageStatsIterator:
             directory (str): Шлях до каталогу з зображеннями.
         """
         self.directory = directory
-        self.files = [f for f in os.listdir(self.directory) if f.lower().endswith((".png", ".jpg", ".jpeg", ".bmp", ".gif", ".jfif"))]
+        self.files = [f for f in os.listdir(self.directory) if f.lower().endswith(
+            (".png", ".jpg", ".jpeg", ".bmp", ".gif", ".jfif"))]
         self.index = 0
 
     def __iter__(self):
@@ -44,6 +47,7 @@ class ImageStatsIterator:
                 'size': img.size
             }
 
+
 def save_image_stats_to_csv(directory, csv_path):
     """
     Зберігає метадані всіх зображень у каталозі у CSV-файл.
@@ -53,11 +57,13 @@ def save_image_stats_to_csv(directory, csv_path):
     """
     iterator = ImageStatsIterator(directory)
     with open(csv_path, 'w', newline='', encoding='utf-8') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=['filename', 'format', 'size'])
+        writer = csv.DictWriter(csvfile, fieldnames=[
+                                'filename', 'format', 'size'])
         writer.writeheader()
         for data in iterator:
             data['size'] = f"{data['size'][0]}x{data['size'][1]}"
             writer.writerow(data)
+
 
 def main():
     """
@@ -67,6 +73,7 @@ def main():
     csv_path = "image_stats.csv"
     save_image_stats_to_csv(directory, csv_path)
     print(f"Статистика збережена у {csv_path}")
+
 
 if __name__ == "__main__":
     main()

@@ -1,5 +1,6 @@
 from contextlib import contextmanager
 
+
 def even_numbers():
     """
     Генерує нескінченну послідовність парних чисел.
@@ -10,6 +11,7 @@ def even_numbers():
     while True:
         yield n
         n += 2
+
 
 @contextmanager
 def limit_generator(gen, limit):
@@ -28,6 +30,7 @@ def limit_generator(gen, limit):
             yield val
     yield limited()
 
+
 def main():
     """
     Генерує 100 парних чисел і зберігає їх у файл.
@@ -37,6 +40,7 @@ def main():
             for num in gen:
                 f.write(f"{num}\n")
     print("100 парних чисел збережено у even_numbers.txt")
+
 
 if __name__ == "__main__":
     main()

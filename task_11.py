@@ -18,6 +18,7 @@ def incremental_average(filepath):
             except ValueError:
                 continue
 
+
 def main():
     """
     Демонструє інкрементне обчислення середнього значення.
@@ -27,6 +28,7 @@ def main():
         f.write("1\n2\n3\n4\n5\n")
     for avg in incremental_average(filepath):
         print(f"Поточне середнє: {avg}")
+
 
 if __name__ == "__main__":
     main()

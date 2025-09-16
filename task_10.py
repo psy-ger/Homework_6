@@ -2,6 +2,7 @@ import zipfile
 from contextlib import contextmanager
 import os
 
+
 @contextmanager
 def zip_archive_manager(zip_path):
     """
@@ -17,6 +18,7 @@ def zip_archive_manager(zip_path):
     finally:
         archive.close()
 
+
 def main():
     """
     Демонструє архівування файлів у zip-архів.
@@ -30,6 +32,7 @@ def main():
         for fname in files:
             archive.write(fname)
     print(f"Архів {zip_path} створено.")
+
 
 if __name__ == "__main__":
     main()
